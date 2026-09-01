@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById('usage-container');
     
-    const apiUrl = 'https://api.statcounter.com/stats/?vn=3&s=popular&f=json&pi=13352957&g=daily&ct=pageviews';
+    const apiUrl = 'https://api.statcounter.com/stats/?vn=3&s=popular&f=json&pi=13352957&g=daily&ct=pageviews&t=1788264612&u=sega.op&sha1=9756bb6';
 
     fetch(apiUrl)
         .then(response => {
