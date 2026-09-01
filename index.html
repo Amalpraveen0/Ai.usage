@@ -3,164 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AI Usage Analytics</title>
-
+    <title>AI Usage Statistics</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="dashboard-wrapper">
+        <header>
+            <h1>AI Tool Usage Dashboard</h1>
+        </header>
 
-    <header>
-        <div class="logo">AI<span>Stats</span></div>
-
-        <nav>
-            <a href="#">Home</a>
-            <a href="#analytics">Analytics</a>
-            <a href="#about">About</a>
-        </nav>
-    </header>
-
-
-    <main>
-
-        <section class="hero">
-            <p class="tag">AI USAGE ANALYTICS</p>
-
-            <h1>
-                Which AI is<br>
-                <span>most popular?</span>
-            </h1>
-
-            <p class="description">
-                Explore usage statistics of popular AI tools
-                like ChatGPT, Gemini, Claude and Copilot.
-            </p>
-
-            <button onclick="scrollToChart()">
-                View Analytics ↓
-            </button>
-        </section>
-
-
-        <section id="analytics" class="analytics">
-
-            <div class="section-title">
-                <div>
-                    <p class="tag">OVERVIEW</p>
-                    <h2>AI Usage</h2>
-                </div>
-
-                <select id="period">
-                    <option>Last 7 Days</option>
-                    <option>Last 30 Days</option>
-                    <option>Last 6 Months</option>
-                    <option>Last 1 Year</option>
-                </select>
+        <main>
+            <!-- This container matches the selector used in your updated script.js -->
+            <div id="usage-container">
+                <p class="loading-text">Loading usage metrics...</p>
             </div>
+        </main>
+    </div>
 
-
-            <div class="stats">
-
-                <div class="stat-card">
-                    <p>Total Users</p>
-                    <h3>120M+</h3>
-                    <span>Across all AI tools</span>
-                </div>
-
-                <div class="stat-card">
-                    <p>Most Popular</p>
-                    <h3>ChatGPT</h3>
-                    <span>Currently leading</span>
-                </div>
-
-                <div class="stat-card">
-                    <p>AI Tools</p>
-                    <h3>4+</h3>
-                    <span>Tracked platforms</span>
-                </div>
-
-            </div>
-
-
-            <div class="chart-card">
-
-                <div class="chart-header">
-                    <div>
-                        <h2>Most Used AI</h2>
-                        <p>Usage comparison</p>
-                    </div>
-                </div>
-
-                <div class="chart">
-
-                    <div class="bar-item">
-                        <div class="bar-label">
-                            <span>ChatGPT</span>
-                            <strong>44%</strong>
-                        </div>
-
-                        <div class="bar-bg">
-                            <div class="bar chatgpt" style="width:44%"></div>
-                        </div>
-                    </div>
-
-
-                    <div class="bar-item">
-                        <div class="bar-label">
-                            <span>Gemini</span>
-                            <strong>24%</strong>
-                        </div>
-
-                        <div class="bar-bg">
-                            <div class="bar gemini" style="width:24%"></div>
-                        </div>
-                    </div>
-
-
-                    <div class="bar-item">
-                        <div class="bar-label">
-                            <span>Copilot</span>
-                            <strong>17%</strong>
-                        </div>
-
-                        <div class="bar-bg">
-                            <div class="bar copilot" style="width:17%"></div>
-                        </div>
-                    </div>
-
-
-                    <div class="bar-item">
-                        <div class="bar-label">
-                            <span>Claude</span>
-                            <strong>6%</strong>
-                        </div>
-
-                        <div class="bar-bg">
-                            <div class="bar claude" style="width:6%"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <p class="source">
-                    * Sample data for UI demonstration
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <footer id="about">
-        <p>© 2026 AIStats</p>
-        <p>AI Usage Analytics</p>
-    </footer>
-
-
+    <!-- Links your frontend script -->
     <script src="script.js"></script>
-
 </body>
 </html>
