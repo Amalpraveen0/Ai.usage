@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #0f172a;
+    background: linear-gradient(135deg, #0f172a, #1e1b4b);
     color: #f8fafc;
     min-height: 100vh;
     display: flex;
@@ -19,57 +19,72 @@ body {
 
 .dashboard-wrapper {
     width: 100%;
-    max-width: 600px;
-    background-color: #1e293b;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    padding: 30px;
-    border: 1px solid #334155;
+    max-width: 480px;
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 header h1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     text-align: center;
-    color: #38bdf8;
+    color: #a78bfa;
+    letter-spacing: 0.5px;
 }
 
 #usage-container {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
 }
 
 .stat-card {
+    background: rgba(15, 23, 42, 0.6);
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #0f172a;
-    padding: 16px 20px;
-    border-radius: 8px;
-    border: 1px solid #334155;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.stat-card:hover {
-    transform: translateY(-2px);
-    border-color: #38bdf8;
 }
 
 .tool-name {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
-    color: #e2e8f0;
+    color: #ffffff;
 }
 
 .tool-percentage {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #38bdf8;
-    background-color: rgba(56, 189, 248, 0.1);
-    padding: 4px 10px;
-    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #c084fc;
+}
+
+/* പ്രോഗ്രസ്സ് ബാർ ഡിസൈൻ */
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background-color: #334155;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #8b5cf6, #c084fc);
+    border-radius: 4px;
+    transition: width 0.6s ease;
 }
 
 .loading-text, .error-text {
