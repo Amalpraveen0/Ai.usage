@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Usage Statistics</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StatCounter Stats</title>
 </head>
+
 <body>
-    <div class="dashboard-wrapper">
-        <header>
-            <h1>AI Tool Usage Dashboard</h1>
-        </header>
 
-        <main>
-            <!-- This container matches the selector used in your updated script.js -->
-            <div id="usage-container">
-                <p class="loading-text">Loading usage metrics...</p>
-            </div>
-        </main>
-    </div>
+  <h2>StatCounter Data</h2>
 
-    <!-- Links your frontend script -->
-    <script src="script.js"></script>
+  <div id="statcounter-data">
+    Loading stats...
+  </div>
 
-<!-- Default Statcounter code for Ai usage http://ai-usage-uu3v.vercel.app -->
-<script type="text/javascript">
-var sc_project=13352957; 
-var sc_invisible=1; 
-var sc_security="2fb1647a"; 
-</script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js" async></script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-href="https://statcounter.com/" target="_blank"><img class="statcounter"
-src="https://c.statcounter.com/13352957/0/2fb1647a/1/" alt="Web Analytics"
-referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->
+  <script>
+    const PROJECT_ID = "13352957";
 
-    
+    const apiUrl =
+      `https://api.statcounter.com/stats/?vn=3&s=popular&f=json&pi=${PROJECT_ID}&g=daily&ct=pageviews`;
+
+    fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("API Error: " + response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("StatCounter Data:", data);
+
+        document.getElementById("statcounter-data").innerHTML = `
+          <h3>Stats Loaded Successfully</h3>
+          <pre>${JSON.stringify(data, null, 2)}</pre>
+        `;
+      })
+      .catch(error => {
+        console.error("Error:", error);
+
+        document.getElementById("statcounter-data").innerHTML =
+          "<p>Failed to load StatCounter stats.</p>";
+      });
+  </script>
+
 </body>
-
-    
 </html>
