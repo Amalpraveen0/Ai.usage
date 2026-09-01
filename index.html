@@ -3,45 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StatCounter Stats</title>
+  <title>AI Usage Dashboard</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <h2>StatCounter Data</h2>
+  <div class="dashboard-wrapper">
+    <header>
+      <h1>AI Tool Usage Share</h1>
+    </header>
 
-  <div id="statcounter-data">
-    Loading stats...
+    <div id="usage-container">
+      <p class="loading-text">Loading stats...</p>
+    </div>
   </div>
 
-  <script>
-    const PROJECT_ID = "13352957";
-
-    const apiUrl =
-      `https://api.statcounter.com/stats/?vn=3&s=popular&f=json&pi=${PROJECT_ID}&g=daily&ct=pageviews`;
-
-    fetch(apiUrl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("API Error: " + response.status);
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log("StatCounter Data:", data);
-
-        document.getElementById("statcounter-data").innerHTML = `
-          <h3>Stats Loaded Successfully</h3>
-          <pre>${JSON.stringify(data, null, 2)}</pre>
-        `;
-      })
-      .catch(error => {
-        console.error("Error:", error);
-
-        document.getElementById("statcounter-data").innerHTML =
-          "<p>Failed to load StatCounter stats.</p>";
-      });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
