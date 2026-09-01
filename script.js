@@ -41,8 +41,13 @@ function renderUsageData(stats) {
         const statCard = document.createElement('div');
         statCard.className = 'stat-card';
         statCard.innerHTML = `
-            <span class="tool-name">${item.tool}</span>
-            <span class="tool-percentage">${item.percentage}%</span>
+            <div class="tool-info">
+                <span class="tool-name">${item.tool}</span>
+                <span class="tool-percentage">${item.percentage}%</span>
+            </div>
+            <div class="progress-bar-background">
+                <div class="progress-bar-fill" style="width: ${item.percentage}%;"></div>
+            </div>
         `;
         container.appendChild(statCard);
     });
@@ -53,4 +58,4 @@ function displayFallbackError() {
     if (container) {
         container.innerHTML = `<p class="error-text">Unable to load live usage metrics at the moment.</p>`;
     }
-        }
+}
