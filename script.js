@@ -1,61 +1,21 @@
-// script.js
-
-document.addEventListener('DOMContentLoaded', () => {
-    fetchUsageStats();
-});
-
-async function fetchUsageStats() {
-    try {
-        // Point this to your actual API route path
-        const response = await fetch('/api/usage');
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const result = await response.json();
-        
-        if (result.success && result.data) {
-            renderUsageData(result.data.stats);
-        } else {
-            console.error('Failed to retrieve valid structure from API.');
-        }
-    } catch (error) {
-        console.error('Connection error:', error);
-        displayFallbackError();
-    }
-}
-
-function renderUsageData(stats) {
-    // Assuming you have a container element with id="usage-container" in your index.html
+document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById('usage-container');
     
-    if (!container) {
-        console.warn('UI container #usage-container not found in index.html.');
-        return;
-    }
+    const apiUrl = 'https://api.statcounter.com/stats/?vn=3&s=popular&f=json&pi=13352957&g=daily&ct=pageviews';
 
-    container.innerHTML = '';
-
-    stats.forEach(item => {
-        const statCard = document.createElement('div');
-        statCard.className = 'stat-card';
-        statCard.innerHTML = `
-            <div class="tool-info">
-                <span class="tool-name">${item.tool}</span>
-                <span class="tool-percentage">${item.percentage}%</span>
-            </div>
-            <div class="progress-bar-background">
-                <div class="progress-bar-fill" style="width: ${item.percentage}%;"></div>
-            </div>
-        `;
-        container.appendChild(statCard);
-    });
-}
-
-function displayFallbackError() {
-    const container = document.getElementById('usage-container');
-    if (container) {
-        container.innerHTML = `<p class="error-text">Unable to load live usage metrics at the moment.</p>`;
-    }
-}
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            container.innerHTML = `<p>Stats Loaded Successfully!</p>`;
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            container.innerHTML = `<p class="error-text">Failed to load usage metrics.</p>`;
+        });
+});
